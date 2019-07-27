@@ -21,7 +21,7 @@
  *
  */
 
-class OC_USER_SAML extends OC_User_Backend {
+class OC_USER_SAML extends OC\User\Backend {
 
 	// cached settings
 	protected $sspPath;
@@ -88,7 +88,7 @@ class OC_USER_SAML extends OC_User_Backend {
 			}
 		}
 
-		OC_Log::write('saml','Not found attribute used to get the username at the requested saml attribute assertion',OC_Log::DEBUG);
+		OCP\Util::writeLog('saml','Not found attribute used to get the username at the requested saml attribute assertion', OCP\Util::DEBUG);
 		$secure_cookie = OC_Config::getValue("forcessl", false);
 		$expires = time() + OC_Config::getValue('remember_login_cookie_lifetime', 60*60*24*15);
 		setcookie("user_saml_logged_in", "1", $expires, '', '', $secure_cookie);
@@ -101,9 +101,9 @@ class OC_USER_SAML extends OC_User_Backend {
                         OCP\Util::writeLog('saml','Invalid username "'.$uid.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OCP\Util::DEBUG);
                         return false;
                 } else {
-                        $random_password = \OC_Util::generateRandomBytes(64);
+                        $random_password = OCP\Util::generateRandomBytes(64);
                         OCP\Util::writeLog('saml','Creating new user: '.$uid, OCP\Util::DEBUG);
-                        OC_User::createUser($uid, $random_password);
+                        \OC::$server->getUserManager()->createUser($uid, $random_password);
                         return $uid;
                 }
         }

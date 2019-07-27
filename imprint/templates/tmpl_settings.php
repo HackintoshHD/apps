@@ -21,6 +21,10 @@
 * If not, see <http://www.gnu.org/licenses/>.
 *
 */
+
+vendor_style('imprint', 'chosen.jquery.min');
+vendor_script('imprint', 'chosen.jquery.min');
+
 ?>
 
 <?php
@@ -32,14 +36,11 @@
  */
 ?>
 
+
 <!-- settings of app 'imprint' -->
 <div class="section" id="imprint">
-	<h2>
-		<span id="title" class="title">
-			<img class="" src="<?php p(\OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
-			<?php p($l->t("Imprint"));?>
-		</span>
-	</h2>
+	<img src="<?php p(\OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
+	<h2><?php p($l->t("Imprint"));?></h2>
 	<div id="imprint-options" class="imprint-option">
 		<label for="imprint-option-position-user" class="imprint-option"><?php p($l->t("Reference").": ");?></label>
 		<select id="imprint-option-position-user" class="imprint-option" type="select" name="position-user">

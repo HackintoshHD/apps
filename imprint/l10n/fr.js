@@ -12,7 +12,7 @@ OC.L10N.register(
     "As guest" : "En tant qu'invité",
     "Footer left" : "Pied de page gauche",
     "Footer right" : "Pied de page droit",
-    "At login" : "Lors de la connexion",
+    "At login" : "Au login",
     "Application" : "Application",
     "Content" : "Contenu",
     "You can use plain text, markdown notation or html markup with inline style attributes. " : "Il est possible d'utiliser du texte brut, de la notation markdown ou du code HTML avec les attributs de style en ligne."
